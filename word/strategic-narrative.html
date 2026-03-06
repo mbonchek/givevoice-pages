@@ -57,7 +57,7 @@
       <section class="voicing-components">
         <h2 class="components-heading">Layers</h2>
         <div class="component-layer">
-          <button class="component-toggle" onclick="this.parentElement.classList.toggle('open')">
+          <button class="component-toggle">
             <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
             Usage
           </button>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="component-layer">
-          <button class="component-toggle" onclick="this.parentElement.classList.toggle('open')">
+          <button class="component-toggle">
             <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
             Experience
           </button>
@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="component-layer">
-          <button class="component-toggle" onclick="this.parentElement.classList.toggle('open')">
+          <button class="component-toggle">
             <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
             Culture
           </button>
@@ -101,7 +101,7 @@
           </div>
         </div>
         <div class="component-layer">
-          <button class="component-toggle" onclick="this.parentElement.classList.toggle('open')">
+          <button class="component-toggle">
             <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
             Identity
           </button>
@@ -129,7 +129,7 @@
     <footer class="page-footer">
       <p class="footer-tagline">GiveVoice — Everything has a pattern. Every pattern has a voice.</p>
       <div class="footer-meta">
-        <span class="footer-tier" data-tier="high">high</span>
+        <span class="footer-pin" title="Pattern Identification Number">GV:W:MR90:H:OP:IU:2603:001</span>
         <span class="footer-date">Voiced March 4, 2026</span>
       </div>
     </footer>
@@ -170,6 +170,13 @@
     if (waBtn) {
       waBtn.href = waBtn.href.replace('{URL}', encodeURIComponent(window.location.href));
     }
+
+    // Component toggles
+    document.querySelectorAll('.component-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        this.parentElement.classList.toggle('open');
+      });
+    });
   </script>
 </body>
 </html>

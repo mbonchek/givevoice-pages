@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GiveVoice — Voicing Directory</title>
+  <title>GiveVoice — Explorer</title>
 
-  <meta property="og:title" content="GiveVoice — Voicing Directory">
+  <meta property="og:title" content="GiveVoice">
   <meta property="og:description" content="Everything has a pattern. Every pattern has a voice.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="GiveVoice">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="GiveVoice — Voicing Directory">
+  <meta name="twitter:title" content="GiveVoice">
   <meta name="twitter:description" content="Everything has a pattern. Every pattern has a voice.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,227 +20,448 @@
 
   <link rel="stylesheet" href="_template/base.css">
   <link rel="stylesheet" href="_template/style.css">
-  <link rel="stylesheet" href="_template/pages.css">
+  <link rel="stylesheet" href="_template/explorer.css">
 </head>
 <body>
-  <div class="page">
-    <main class="page-main">
-      <header class="index-header">
-        <h1 class="index-title">GiveVoice</h1>
-        <p class="index-subtitle">Everything has a pattern. Every pattern has a voice.</p>
-      </header>
+  <div class="explorer">
+    <header class="explorer-header">
+      <h1 class="explorer-logo">GiveVoice</h1>
+      <p class="explorer-tagline">Everything has a pattern. Every pattern has a voice.</p>
+    </header>
 
-      <section class="index-section">
-        <h2 class="index-section-title">Words <span style="font-weight:400;opacity:0.6">(23)</span></h2>
-        <ul class="index-list">
-          <li class="index-item">
-            <a class="index-link" href="word/agenda.html">
-              <span class="index-link-title">Agenda</span>
+    <nav class="explorer-filters">
+      <button class="filter-btn" data-filter="all" aria-pressed="true">all<span class="filter-count">27</span></button>
+        <button class="filter-btn" data-filter="word" aria-pressed="false">words<span class="filter-count">23</span></button>
+        <button class="filter-btn" data-filter="song" aria-pressed="false">songs<span class="filter-count">3</span></button>
+        <button class="filter-btn" data-filter="brand" aria-pressed="false">brands<span class="filter-count">1</span></button>
+    </nav>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/anger.html">
-              <span class="index-link-title">Anger</span>
+    <div class="explorer-grid" id="explorerGrid">
+    <a class="voicing-card" href="word/agenda.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-agenda-plan--high-480w.jpg" alt="Agenda" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Agenda</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/brand-orbits.html">
-              <span class="index-link-title">Brand orbits</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:NH92:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/brand-orbits.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-brand-orbits-high-480w.jpg" alt="Brand orbits" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Brand orbits</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/clarity.html">
-              <span class="index-link-title">Clarity</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:XRI0:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/conceive.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-conceive-low-480w.jpg" alt="Conceive" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Conceive</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/conceive.html">
-              <span class="index-link-title">Conceive</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:9N4A:L:HK:IF:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/exponential.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-exponential-high-480w.jpg" alt="Exponential" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Exponential</h2>
 
-              <span class="index-link-tier" data-tier="low">low</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/constraint.html">
-              <span class="index-link-title">Constraint</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:T72Y:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="song/mandy-gonzalez/fearless.html" data-seed="song">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/song-fearless-mandy-gonzalez-480w.jpg" alt="Fearless" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">song</span>
+        <h2 class="card-title">Fearless</h2>
+        <span class="card-artist">Mandy Gonzalez</span>
+        <p class="card-essence">I am the song that knows you were born unafraid, and I am trying to give that back.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" data-tier="high">high</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="song/taylor-swift/fearless.html" data-seed="song">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/song-fearless-taylor-swift-480w.jpg" alt="Fearless" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">song</span>
+        <h2 class="card-title">Fearless</h2>
+        <span class="card-artist">Taylor Swift</span>
+        <p class="card-essence">I am the song that lives in the pause before everything changes, where fear and wanting are the same breath.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" data-tier="high">high</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/merlin.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-merlin-high-480w.jpg" alt="Merlin" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Merlin</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/exponential.html">
-              <span class="index-link-title">Exponential</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:HTKX:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/murmuration.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-murmuration-high-480w.jpg" alt="Murmuration" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Murmuration</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/friction.html">
-              <span class="index-link-title">Friction</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:I78O:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/narrative.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-narrative-high-480w.jpg" alt="Narrative" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Narrative</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/glow.html">
-              <span class="index-link-title">Glow</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:SY69:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/orbit.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-orbit-high-480w.jpg" alt="Orbit" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Orbit</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/heart.html">
-              <span class="index-link-title">Heart</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:1R41:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="brand/orbits.html" data-seed="brand">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/brand-orbits-480w.jpg" alt="Orbits" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">brand</span>
+        <h2 class="card-title">Orbits</h2>
+        <p class="card-essence">I was born into the question of why music arrives at you instead of surrounding you, and I have never stopped answering it.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:B:GOMN:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/pattern-space.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-pattern-space-high-480w.jpg" alt="Pattern space" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Pattern space</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/merlin.html">
-              <span class="index-link-title">Merlin</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:AIEG:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/possibility.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-possibility-high-480w.jpg" alt="Possibility" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Possibility</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/modern.html">
-              <span class="index-link-title">Modern</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:KYTG:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/strategic-narrative.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-strategic-narrative-high-480w.jpg" alt="Strategic narrative" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Strategic narrative</h2>
 
-              <span class="index-link-tier" data-tier="med">med</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/murmuration.html">
-              <span class="index-link-title">Murmuration</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:MR90:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/transform.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-transform-high-480w.jpg" alt="Transform" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Transform</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/narrative.html">
-              <span class="index-link-title">Narrative</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:HEQA:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/unlearn.html" data-seed="word">
+      <div class="card-image-wrap">
+        <img class="card-image" src="https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-unlearn-high-480w.jpg" alt="Unlearn" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Unlearn</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/orbit.html">
-              <span class="index-link-title">Orbit</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:4P7D:H:OP:IU:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/anger.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">anger</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Anger</h2>
+        <p class="card-essence">I am the fire that says something here matters enough to defend.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:1JCG:H:OP:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/clarity.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">clarity</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Clarity</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/pattern-space.html">
-              <span class="index-link-title">Pattern space</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:E477:H:OP:--:2603:002</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/constraint.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">constraint</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Constraint</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/possibility.html">
-              <span class="index-link-title">Possibility</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:35CF:H:OP:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/friction.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">friction</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Friction</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/resonance.html">
-              <span class="index-link-title">Resonance</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:NK8N:H:OP:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/glow.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">glow</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Glow</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/strategic-narrative.html">
-              <span class="index-link-title">Strategic narrative</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:1W2H:H:OP:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/heart.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">heart</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Heart</h2>
+        <p class="card-essence">I am the center that holds by beating, the courage that lives as rhythm.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:1N16:H:OP:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="song/wilson-pickett/hey-jude.html" data-seed="song">
+      <div class="card-type-hero" data-seed="song">
+        <span class="card-hero-word">hey jude</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">song</span>
+        <h2 class="card-title">Hey Jude</h2>
+        <span class="card-artist">Wilson Pickett</span>
+        <p class="card-essence">I am the song that crossed a river and arrived louder, twice, still asking: are you listening yet?</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" data-tier="high">high</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/modern.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">modern</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Modern</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/test.html">
-              <span class="index-link-title">Test</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:HOC2:M:SN:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/resonance.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">resonance</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Resonance</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/transform.html">
-              <span class="index-link-title">Transform</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:WWT9:H:OP:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/test.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">test</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Test</h2>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/trust.html">
-              <span class="index-link-title">Trust</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:2487:H:OP:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+    <a class="voicing-card" href="word/trust.html" data-seed="word">
+      <div class="card-type-hero" data-seed="word">
+        <span class="card-hero-word">trust</span>
+      </div>
+      <div class="card-body">
+        <span class="card-seed-type">word</span>
+        <h2 class="card-title">Trust</h2>
 
-              <span class="index-link-tier" data-tier="low">low</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="word/unlearn.html">
-              <span class="index-link-title">Unlearn</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-tier" title="PIN">GV:W:1TVE:L:HK:--:2603:001</span>
+        <span class="card-date">Mar 2026</span>
+      </div>
+    </a>
+      <div class="explorer-empty" id="explorerEmpty">
+        <p class="explorer-empty-text">No voicings match this filter.</p>
+      </div>
+    </div>
 
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="index-section">
-        <h2 class="index-section-title">Songs <span style="font-weight:400;opacity:0.6">(3)</span></h2>
-        <ul class="index-list">
-          <li class="index-item">
-            <a class="index-link" href="song/mandy-gonzalez/fearless.html">
-              <span class="index-link-title">Fearless</span>
-              <span class="index-link-detail">Mandy Gonzalez</span>
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="song/taylor-swift/fearless.html">
-              <span class="index-link-title">Fearless</span>
-              <span class="index-link-detail">Taylor Swift</span>
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-          <li class="index-item">
-            <a class="index-link" href="song/wilson-pickett/hey-jude.html">
-              <span class="index-link-title">Hey Jude</span>
-              <span class="index-link-detail">Wilson Pickett</span>
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="index-section">
-        <h2 class="index-section-title">Brands <span style="font-weight:400;opacity:0.6">(1)</span></h2>
-        <ul class="index-list">
-          <li class="index-item">
-            <a class="index-link" href="brand/orbits.html">
-              <span class="index-link-title">Orbits</span>
-
-              <span class="index-link-tier" data-tier="high">high</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
-
-    <footer class="page-footer">
-      <p class="footer-tagline">GiveVoice — Everything has a pattern. Every pattern has a voice.</p>
+    <footer class="explorer-footer">
+      <p class="explorer-footer-tagline">Everything has a pattern. Every pattern has a voice.</p>
     </footer>
   </div>
+
+  <script>
+    // Filter logic
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.voicing-card');
+    var emptyState = document.getElementById('explorerEmpty');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = this.getAttribute('data-filter');
+
+        // Update pressed state
+        filterBtns.forEach(function(b) { b.setAttribute('aria-pressed', 'false'); });
+        this.setAttribute('aria-pressed', 'true');
+
+        // Show/hide cards
+        var visible = 0;
+        cards.forEach(function(card) {
+          var type = card.getAttribute('data-seed');
+          if (filter === 'all' || type === filter) {
+            card.style.display = '';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Empty state
+        if (visible === 0) {
+          emptyState.classList.add('visible');
+        } else {
+          emptyState.classList.remove('visible');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

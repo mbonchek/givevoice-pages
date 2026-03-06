@@ -23,6 +23,11 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+function titleCase(str) {
+  if (!str) return '';
+  return str.replace(/\b\w/g, c => c.toUpperCase());
+}
+
 function formatDate(isoStr) {
   if (!isoStr) return '';
   const d = new Date(isoStr);
@@ -30,6 +35,15 @@ function formatDate(isoStr) {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+  });
+}
+
+function formatDateShort(isoStr) {
+  if (!isoStr) return '';
+  const d = new Date(isoStr);
+  return d.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
   });
 }
 
@@ -78,8 +92,29 @@ function tierRank(tier) {
 }
 
 // ---------------------------------------------------------------------------
-// Read all JSON data
+// Read all JSON data (recursive, handles nested artist folders)
 // ---------------------------------------------------------------------------
+
+function readJsonFiles(dir) {
+  const results = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...readJsonFiles(fullPath));
+    } else if (entry.name.endsWith('.json') && entry.name !== 'manifest.json') {
+      try {
+        const raw = fs.readFileSync(fullPath, 'utf-8');
+        const data = JSON.parse(raw);
+        data._filepath = fullPath;
+        results.push(data);
+      } catch (e) {
+        console.warn(`  Warning: could not parse ${fullPath}: ${e.message}`);
+      }
+    }
+  }
+  return results;
+}
 
 function readAllData() {
   const all = [];
@@ -89,17 +124,10 @@ function readAllData() {
 
   for (const st of seedTypes) {
     const dir = path.join(DATA_DIR, st);
-    const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
-    for (const f of files) {
-      try {
-        const raw = fs.readFileSync(path.join(dir, f), 'utf-8');
-        const data = JSON.parse(raw);
-        data._filename = f;
-        data._seedDir = st;
-        all.push(data);
-      } catch (e) {
-        console.warn(`  Warning: could not parse ${st}/${f}: ${e.message}`);
-      }
+    const files = readJsonFiles(dir);
+    for (const data of files) {
+      data._seedDir = st;
+      all.push(data);
     }
   }
   return all;
@@ -125,7 +153,6 @@ function computeOutputPath(data) {
   }
 
   if (st === 'book') {
-    // Future: book/{author-slug}/{title-slug}.html
     const author = data.author || '';
     return path.join('book', slugify(author), slugify(title) + '.html');
   }
@@ -150,7 +177,7 @@ function deduplicateByPath(allData) {
 }
 
 // ---------------------------------------------------------------------------
-// HTML Generation
+// HTML Generation — Voicing Pages
 // ---------------------------------------------------------------------------
 
 function cssPath(outputPath) {
@@ -169,6 +196,10 @@ function generateVoicingPage(data) {
   const displayImage = thumbnailUrl || imageUrl;
   const rel = cssPath(data._outputPath);
 
+  // PIN
+  const vin = data.vin || {};
+  const pinId = vin.id || '';
+
   // Determine available scales
   const scales = [];
   const voicing = data.voicing || {};
@@ -176,32 +207,26 @@ function generateVoicingPage(data) {
   if (voicing.paragraph) scales.push('paragraph');
   if (voicing.page) scales.push('page');
 
-  // Default to the longest available scale
   const defaultScale = scales[scales.length - 1] || 'page';
 
-  // Build OG description
   const ogDescription = essence
     ? escapeHtml(essence)
     : voicing.sentence
       ? escapeHtml(voicing.sentence.slice(0, 200))
       : `A voicing of ${title}`;
 
-  // Song-specific
   const isSong = st === 'song';
   const artist = data.artist || data.subtitle || '';
   const albumArt = data.albumArt || '';
   const previewUrl = data.previewUrl || '';
 
-  // Brand-specific
   const isBrand = st === 'brand';
   const subtitle = data.subtitle || '';
 
-  // Build page title for <title>
   const pageTitle = isSong
     ? `${title} by ${artist} — GiveVoice`
     : `${title} — GiveVoice`;
 
-  // OG title
   const ogTitle = isSong ? `${title} by ${artist}` : title;
 
   return `<!DOCTYPE html>
@@ -271,7 +296,7 @@ ${generateComponents(data)}
     <footer class="page-footer">
       <p class="footer-tagline">GiveVoice — Everything has a pattern. Every pattern has a voice.</p>
       <div class="footer-meta">
-        <span class="footer-tier" data-tier="${escapeHtml(tier)}">${escapeHtml(tier || 'standard')}</span>
+${pinId ? `        <span class="footer-pin" title="Pattern Identification Number">${escapeHtml(pinId)}</span>` : ''}
 ${voicedAt ? `        <span class="footer-date">Voiced ${escapeHtml(voicedAt)}</span>` : ''}
       </div>
     </footer>
@@ -312,6 +337,13 @@ ${voicedAt ? `        <span class="footer-date">Voiced ${escapeHtml(voicedAt)}</
     if (waBtn) {
       waBtn.href = waBtn.href.replace('{URL}', encodeURIComponent(window.location.href));
     }
+
+    // Component toggles
+    document.querySelectorAll('.component-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        this.parentElement.classList.toggle('open');
+      });
+    });
   </script>
 </body>
 </html>`;
@@ -347,18 +379,14 @@ function generateSongMeta(data) {
 /** Parse a component value — may be plain text, JSON string, or markdown-fenced JSON */
 function parseComponentText(raw) {
   if (!raw) return '';
-  // Strip markdown code fences if present
   let str = raw.trim();
   if (str.startsWith('```')) {
     str = str.replace(/^```[a-z]*\n?/, '').replace(/\n?```$/, '').trim();
   }
-  // Try to parse as JSON with sentence/paragraph/page
   try {
     const obj = JSON.parse(str);
-    // Return the longest available scale
     return obj.page || obj.paragraph || obj.sentence || '';
   } catch (e) {
-    // Plain text
     return str;
   }
 }
@@ -382,7 +410,7 @@ function generateComponents(data) {
     const text = parseComponentText(components[layer]);
     if (!text) return '';
     return `        <div class="component-layer">
-          <button class="component-toggle" onclick="this.parentElement.classList.toggle('open')">
+          <button class="component-toggle">
             <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
             ${layerLabels[layer]}
           </button>
@@ -414,10 +442,10 @@ ${tabs}
 }
 
 // ---------------------------------------------------------------------------
-// Index page
+// Explorer / Index Page
 // ---------------------------------------------------------------------------
 
-function generateIndexPage(entries) {
+function generateExplorerPage(entries) {
   // Group by seed type
   const groups = {};
   const typeOrder = ['word', 'song', 'brand', 'book'];
@@ -438,51 +466,45 @@ function generateIndexPage(entries) {
   }
 
   const orderedTypes = typeOrder.filter(t => groups[t]);
+  const totalCount = entries.length;
 
-  const sections = orderedTypes.map(st => {
-    const items = groups[st].map(entry => {
-      const title = capitalize(entry.title || '');
-      const href = entry._outputPath;
-      const tier = (entry.tier || '').toLowerCase();
-      const detail = st === 'song' ? (entry.artist || '') : '';
+  // Build card HTML for each voicing
+  const cards = entries
+    .sort((a, b) => {
+      // Sort: items with images first, then alphabetically
+      const aImg = a.imageUrl || a.thumbnailUrl ? 0 : 1;
+      const bImg = b.imageUrl || b.thumbnailUrl ? 0 : 1;
+      if (aImg !== bImg) return aImg - bImg;
+      return (a.title || '').toLowerCase().localeCompare((b.title || '').toLowerCase());
+    })
+    .map(entry => generateCard(entry))
+    .join('\n');
 
-      return `          <li class="index-item">
-            <a class="index-link" href="${escapeHtml(href)}">
-              <span class="index-link-title">${escapeHtml(title)}</span>
-${detail ? `              <span class="index-link-detail">${escapeHtml(detail)}</span>` : ''}
-              <span class="index-link-tier" data-tier="${escapeHtml(tier)}">${escapeHtml(tier)}</span>
-            </a>
-          </li>`;
-    }).join('\n');
+  // Filter counts
+  const filterCounts = {};
+  for (const st of orderedTypes) {
+    filterCounts[st] = groups[st].length;
+  }
 
-    const label = st === 'word' ? 'Words'
-      : st === 'song' ? 'Songs'
-        : st === 'brand' ? 'Brands'
-          : st === 'book' ? 'Books'
-            : capitalize(st);
-
-    return `      <section class="index-section">
-        <h2 class="index-section-title">${label} <span style="font-weight:400;opacity:0.6">(${groups[st].length})</span></h2>
-        <ul class="index-list">
-${items}
-        </ul>
-      </section>`;
-  }).join('\n\n');
+  const filterButtons = orderedTypes.map(st => {
+    const label = st === 'word' ? 'words' : st === 'song' ? 'songs' : st === 'brand' ? 'brands' : st === 'book' ? 'books' : st;
+    return `        <button class="filter-btn" data-filter="${st}" aria-pressed="false">${label}<span class="filter-count">${filterCounts[st]}</span></button>`;
+  }).join('\n');
 
   return `<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GiveVoice — Voicing Directory</title>
+  <title>GiveVoice — Explorer</title>
 
-  <meta property="og:title" content="GiveVoice — Voicing Directory">
+  <meta property="og:title" content="GiveVoice">
   <meta property="og:description" content="Everything has a pattern. Every pattern has a voice.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="GiveVoice">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="GiveVoice — Voicing Directory">
+  <meta name="twitter:title" content="GiveVoice">
   <meta name="twitter:description" content="Everything has a pattern. Every pattern has a voice.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -491,25 +513,122 @@ ${items}
 
   <link rel="stylesheet" href="_template/base.css">
   <link rel="stylesheet" href="_template/style.css">
-  <link rel="stylesheet" href="_template/pages.css">
+  <link rel="stylesheet" href="_template/explorer.css">
 </head>
 <body>
-  <div class="page">
-    <main class="page-main">
-      <header class="index-header">
-        <h1 class="index-title">GiveVoice</h1>
-        <p class="index-subtitle">Everything has a pattern. Every pattern has a voice.</p>
-      </header>
+  <div class="explorer">
+    <header class="explorer-header">
+      <h1 class="explorer-logo">GiveVoice</h1>
+      <p class="explorer-tagline">Everything has a pattern. Every pattern has a voice.</p>
+    </header>
 
-${sections}
-    </main>
+    <nav class="explorer-filters">
+      <button class="filter-btn" data-filter="all" aria-pressed="true">all<span class="filter-count">${totalCount}</span></button>
+${filterButtons}
+    </nav>
 
-    <footer class="page-footer">
-      <p class="footer-tagline">GiveVoice — Everything has a pattern. Every pattern has a voice.</p>
+    <div class="explorer-grid" id="explorerGrid">
+${cards}
+      <div class="explorer-empty" id="explorerEmpty">
+        <p class="explorer-empty-text">No voicings match this filter.</p>
+      </div>
+    </div>
+
+    <footer class="explorer-footer">
+      <p class="explorer-footer-tagline">Everything has a pattern. Every pattern has a voice.</p>
     </footer>
   </div>
+
+  <script>
+    // Filter logic
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.voicing-card');
+    var emptyState = document.getElementById('explorerEmpty');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = this.getAttribute('data-filter');
+
+        // Update pressed state
+        filterBtns.forEach(function(b) { b.setAttribute('aria-pressed', 'false'); });
+        this.setAttribute('aria-pressed', 'true');
+
+        // Show/hide cards
+        var visible = 0;
+        cards.forEach(function(card) {
+          var type = card.getAttribute('data-seed');
+          if (filter === 'all' || type === filter) {
+            card.style.display = '';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Empty state
+        if (visible === 0) {
+          emptyState.classList.add('visible');
+        } else {
+          emptyState.classList.remove('visible');
+        }
+      });
+    });
+  </script>
 </body>
 </html>`;
+}
+
+function generateCard(data) {
+  const st = (data.seedType || data._seedDir).toLowerCase();
+  const title = capitalize(data.title || '');
+  const essence = data.essence || '';
+  const tier = (data.tier || '').toLowerCase();
+  const voicedAt = formatDateShort(data.voicedAt);
+  const imageUrl = data.imageUrl || '';
+  const thumbnailUrl = data.thumbnailUrl || '';
+  const displayImage = thumbnailUrl || imageUrl;
+  const href = data._outputPath;
+  const vin = data.vin || {};
+  const pinId = vin.id || '';
+
+  // Song-specific
+  const isSong = st === 'song';
+  const artist = data.artist || data.subtitle || '';
+
+  // Visual area: image or typographic fallback
+  let visualHtml;
+  if (displayImage) {
+    visualHtml = `      <div class="card-image-wrap">
+        <img class="card-image" src="${escapeHtml(displayImage)}" alt="${escapeHtml(title)}" loading="lazy">
+      </div>`;
+  } else {
+    visualHtml = `      <div class="card-type-hero" data-seed="${escapeHtml(st)}">
+        <span class="card-hero-word">${escapeHtml(title.toLowerCase())}</span>
+      </div>`;
+  }
+
+  // Artist line for songs
+  const artistHtml = isSong && artist
+    ? `\n        <span class="card-artist">${escapeHtml(artist)}</span>`
+    : '';
+
+  // PIN in footer
+  const pinHtml = pinId
+    ? `<span class="card-tier" title="PIN">${escapeHtml(pinId)}</span>`
+    : `<span class="card-tier" data-tier="${escapeHtml(tier)}">${escapeHtml(tier)}</span>`;
+
+  return `    <a class="voicing-card" href="${escapeHtml(href)}" data-seed="${escapeHtml(st)}">
+${visualHtml}
+      <div class="card-body">
+        <span class="card-seed-type">${escapeHtml(st)}</span>
+        <h2 class="card-title">${escapeHtml(title)}</h2>${artistHtml}
+${essence ? `        <p class="card-essence">${escapeHtml(essence)}</p>` : ''}
+      </div>
+      <div class="card-footer">
+        ${pinHtml}
+${voicedAt ? `        <span class="card-date">${escapeHtml(voicedAt)}</span>` : ''}
+      </div>
+    </a>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -543,9 +662,9 @@ function main() {
   }
   console.log(`\n  Generated ${generated} voicing pages\n`);
 
-  // 4. Generate index
-  console.log('Generating index.html ...');
-  const indexHtml = generateIndexPage(entries);
+  // 4. Generate explorer index
+  console.log('Generating index.html (explorer) ...');
+  const indexHtml = generateExplorerPage(entries);
   fs.writeFileSync(path.join(ROOT, 'index.html'), indexHtml, 'utf-8');
   console.log('  index.html\n');
 

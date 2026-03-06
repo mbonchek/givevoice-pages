@@ -95,7 +95,7 @@
     <footer class="page-footer">
       <p class="footer-tagline">GiveVoice — Everything has a pattern. Every pattern has a voice.</p>
       <div class="footer-meta">
-        <span class="footer-tier" data-tier="high">high</span>
+
         <span class="footer-date">Voiced March 6, 2026</span>
       </div>
     </footer>
@@ -136,6 +136,13 @@
     if (waBtn) {
       waBtn.href = waBtn.href.replace('{URL}', encodeURIComponent(window.location.href));
     }
+
+    // Component toggles
+    document.querySelectorAll('.component-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        this.parentElement.classList.toggle('open');
+      });
+    });
   </script>
 </body>
 </html>

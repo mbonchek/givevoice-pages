@@ -1,0 +1,330 @@
+/* explorer.css — GiveVoice Explorer */
+
+/* ============================================
+   EXPLORER LAYOUT
+   ============================================ */
+.explorer {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.explorer-header {
+  text-align: center;
+  padding: var(--space-16) var(--space-6) var(--space-8);
+  max-width: var(--content-wide);
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .explorer-header {
+    padding: var(--space-20) var(--space-8) var(--space-12);
+  }
+}
+
+.explorer-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 300;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.explorer-tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-text-muted);
+  max-width: 40ch;
+  margin: 0 auto;
+}
+
+/* ============================================
+   FILTER BAR
+   ============================================ */
+.explorer-filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-6) var(--space-8);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-interactive);
+}
+
+.filter-btn:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--color-text);
+  color: var(--color-text-inverse);
+  border-color: var(--color-text);
+}
+
+.filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4em;
+  height: 1.4em;
+  font-size: 0.75em;
+  line-height: 1;
+  margin-left: var(--space-1);
+  padding: 0 0.3em;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-offset);
+  color: var(--color-text-faint);
+}
+
+.filter-btn[aria-pressed="true"] .filter-count {
+  background: oklch(from var(--color-text) l c h / 0.2);
+  color: var(--color-text-inverse);
+}
+
+/* ============================================
+   GRID
+   ============================================ */
+.explorer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+  padding: 0 var(--space-6) var(--space-16);
+  max-width: var(--content-wide);
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .explorer-grid {
+    padding: 0 var(--space-8) var(--space-20);
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .explorer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   CARD — BASE
+   ============================================ */
+.voicing-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  transition: all var(--transition-interactive);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.voicing-card:hover {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CARD — IMAGE VARIANT
+   ============================================ */
+.card-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-surface-offset);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.voicing-card:hover .card-image {
+  transform: scale(1.03);
+}
+
+/* ============================================
+   CARD — TYPOGRAPHIC FALLBACK
+   ============================================ */
+.card-type-hero {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+/* Seed-type-based subtle backgrounds */
+.card-type-hero[data-seed="word"] {
+  background: linear-gradient(135deg, var(--color-surface-offset) 0%, var(--color-surface-offset-2) 100%);
+}
+
+.card-type-hero[data-seed="song"] {
+  background: linear-gradient(135deg, var(--color-primary-highlight) 0%, var(--color-surface-offset) 100%);
+}
+
+.card-type-hero[data-seed="brand"] {
+  background: linear-gradient(135deg, var(--color-gold-highlight) 0%, var(--color-surface-offset) 100%);
+}
+
+.card-type-hero[data-seed="book"] {
+  background: linear-gradient(135deg, var(--color-purple-highlight) 0%, var(--color-surface-offset) 100%);
+}
+
+.card-hero-word {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1rem + 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-text);
+  opacity: 0.12;
+  text-align: center;
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
+  user-select: none;
+  position: absolute;
+  /* Allow overflow for large words */
+  white-space: nowrap;
+}
+
+/* ============================================
+   CARD — BODY
+   ============================================ */
+.card-body {
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-seed-type {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-1);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.card-artist {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.card-essence {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  flex: 1;
+  /* Clamp to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--color-divider);
+}
+
+.card-tier {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.card-tier[data-tier="high"] {
+  color: var(--color-gold);
+}
+
+.card-tier[data-tier="med"] {
+  color: var(--color-primary);
+}
+
+.card-date {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-faint);
+}
+
+/* ============================================
+   EXPLORER FOOTER
+   ============================================ */
+.explorer-footer {
+  text-align: center;
+  padding: var(--space-8) var(--space-6) var(--space-12);
+  border-top: 1px solid var(--color-divider);
+}
+
+.explorer-footer-tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.explorer-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  display: none;
+}
+
+.explorer-empty.visible {
+  display: block;
+}
+
+.explorer-empty-text {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-text-faint);
+}
