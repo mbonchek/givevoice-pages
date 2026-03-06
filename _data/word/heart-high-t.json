@@ -11,6 +11,16 @@
   "components": null,
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:1N16:H:OP:--:2603:001",
+    "seed": "heart",
+    "seedType": "word",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-02T17:44:45.351Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-02T17:44:45.351Z",
   "version": 1

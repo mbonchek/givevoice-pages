@@ -16,6 +16,16 @@
   },
   "imageUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/images/words/cards/word/conceive@low-1772591789066.jpg",
   "thumbnailUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-conceive-low-480w.jpg",
+  "vin": {
+    "id": "GV:W:9N4A:L:HK:IF:2603:001",
+    "seed": "conceive",
+    "seedType": "word",
+    "tier": "low",
+    "voicingModel": "claude-haiku-4-5",
+    "imageModel": "imagen-4.0-fast-generate-001",
+    "voicedAt": "2026-03-01T17:09:27.384Z",
+    "sequence": 1
+  },
   "tier": "low",
   "voicedAt": "2026-03-01T17:09:27.384Z",
   "version": 1

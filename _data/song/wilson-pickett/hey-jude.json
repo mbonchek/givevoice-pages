@@ -11,6 +11,16 @@
   "components": null,
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:S:TC51:H:OP:--:2603:001",
+    "seed": "Hey Jude:Wilson Pickett",
+    "seedType": "song",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-05T22:38:52.495Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-05T22:38:52.495Z",
   "version": 1,

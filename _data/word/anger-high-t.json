@@ -11,6 +11,16 @@
   "components": null,
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:1JCG:H:OP:--:2603:001",
+    "seed": "anger",
+    "seedType": "word",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-02T17:48:14.075Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-02T17:48:14.075Z",
   "version": 1

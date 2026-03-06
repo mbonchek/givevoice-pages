@@ -16,6 +16,16 @@
   },
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:WWT9:H:OP:--:2603:001",
+    "seed": "resonance",
+    "seedType": "word",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-02T23:58:49.595Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-02T23:58:49.595Z",
   "version": 1

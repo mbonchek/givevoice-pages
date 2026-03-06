@@ -11,6 +11,16 @@
   "components": null,
   "imageUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/brand-overlay/1772598553685-y4ede1.png",
   "thumbnailUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/brand-orbits-480w.jpg",
+  "vin": {
+    "id": "GV:B:GOMN:H:OP:IU:2603:001",
+    "seed": "orbits",
+    "seedType": "brand",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": "imagen-4.0-ultra-generate-001",
+    "voicedAt": "2026-03-04T04:29:14.522Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-04T04:29:14.522Z",
   "version": 1,

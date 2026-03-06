@@ -16,6 +16,16 @@
   },
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:NK8N:H:OP:--:2603:001",
+    "seed": "friction",
+    "seedType": "word",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-02T23:58:02.556Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-02T23:58:02.556Z",
   "version": 1

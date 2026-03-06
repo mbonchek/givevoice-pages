@@ -11,6 +11,16 @@
   "components": null,
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:2487:H:OP:--:2603:001",
+    "seed": "test",
+    "seedType": "word",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-02T19:21:14.756Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-02T19:21:14.756Z",
   "version": 1

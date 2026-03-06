@@ -16,6 +16,16 @@
   },
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:1TVE:L:HK:--:2603:001",
+    "seed": "trust",
+    "seedType": "word",
+    "tier": "low",
+    "voicingModel": "claude-haiku-4-5",
+    "imageModel": null,
+    "voicedAt": "2026-03-01T20:30:29.603Z",
+    "sequence": 1
+  },
   "tier": "low",
   "voicedAt": "2026-03-01T20:30:29.603Z",
   "version": 1

@@ -16,6 +16,16 @@
   },
   "imageUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/images/words/cards/word/murmuration@high-1772598697782.jpg",
   "thumbnailUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-murmuration-high-480w.jpg",
+  "vin": {
+    "id": "GV:W:I78O:H:OP:IU:2603:001",
+    "seed": "Murmuration",
+    "seedType": "word",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": "imagen-4.0-ultra-generate-001",
+    "voicedAt": "2026-03-04T04:30:31.449Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-04T04:30:31.449Z",
   "version": 1

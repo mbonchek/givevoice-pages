@@ -11,6 +11,16 @@
   "components": null,
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:1W2H:H:OP:--:2603:001",
+    "seed": "glow",
+    "seedType": "word",
+    "tier": "high",
+    "voicingModel": "claude-opus-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-02T19:22:52.491Z",
+    "sequence": 1
+  },
   "tier": "high",
   "voicedAt": "2026-03-02T19:22:52.491Z",
   "version": 1

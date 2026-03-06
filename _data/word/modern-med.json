@@ -16,6 +16,16 @@
   },
   "imageUrl": null,
   "thumbnailUrl": null,
+  "vin": {
+    "id": "GV:W:HOC2:M:SN:--:2603:001",
+    "seed": "modern",
+    "seedType": "word",
+    "tier": "med",
+    "voicingModel": "claude-sonnet-4-6",
+    "imageModel": null,
+    "voicedAt": "2026-03-01T21:36:23.811Z",
+    "sequence": 1
+  },
   "tier": "med",
   "voicedAt": "2026-03-01T21:36:23.811Z",
   "version": 1
