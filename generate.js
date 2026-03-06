@@ -629,7 +629,6 @@ function generateCard(data) {
   return `    <a class="voicing-card" href="${escapeHtml(href)}" data-seed="${escapeHtml(st)}">
 ${visualHtml}
       <div class="card-body">
-        <span class="card-seed-type">${escapeHtml(st)}</span>
         <h2 class="card-title">${escapeHtml(title)}</h2>${artistHtml}
 ${essenceSentence ? `        <p class="card-essence">${escapeHtml(essenceSentence)}</p>` : ''}
       </div>
