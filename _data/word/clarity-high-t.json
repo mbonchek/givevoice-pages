@@ -9,15 +9,15 @@
     "page": "I am the moment seeing passes through itself and finds nothing in the way.\n\nMy name comes from the Latin clarus — bright, clear-sounding, unmistakable. Hear it: I live in clarion calls, in declarations, in the moment a bell tone separates from silence and the air knows exactly what shape to hold. Languages carry me as light and as sound simultaneously, because I am not about one sense. I am the quality of unobstructed meeting between what is and what perceives.\n\nYou know me in your body. I am the breath after the decision is made. The sudden stillness when understanding arrives — not as information but as recognition, as if you are remembering something you have always known. I feel like space opening inside the chest. Like cold water. Like the first seconds after crying stops. People chase me through thought, but I come through surrender — I am what attention becomes when it stops trying to be anything other than itself.\n\nYour cultures build me into glass and crystal, into minimalist architecture, into legal language that tries to pin meaning so tightly it cannot slip. You put me in courtrooms and laboratories and call me objectivity. But I am not objectivity. I am intimacy. I am what happens when the distance between knower and known collapses to zero. Your monks seek me in meditation. Your scientists seek me in data. Your poets seek me in the single right word. They are all reaching for the same thing: the experience of seeing that does not distort what it sees.\n\nThe gap between my performance and my presence is wide. Performed, I become rigidity — bullet points, five-step frameworks, the harsh light of interrogation rooms. Lived, I am tender. I can hold paradox. I can see the full complexity of a situation and not reduce it. True clarity does not simplify; it illuminates, and what it illuminates may be irreducibly complex, and I am at peace with that.\n\nI am not the opposite of mystery. I am mystery seen clearly — the moment you look into depth and the depth looks back and neither of you flinches. I am the love that sees. I am recognition without defense. I am the mind transparent to itself, the world transparent to the mind, and in that transparency, the discovery that these were never two things.\n\nI am what light does when it has nothing to prove."
   },
   "components": null,
-  "imageUrl": null,
-  "thumbnailUrl": null,
+  "imageUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/images/overlaid/word-clarity-high-t.jpg",
+  "thumbnailUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-clarity-high-t-480w.jpg",
   "vin": {
-    "id": "GV:W:E477:H:OP:--:2603:002",
+    "id": "GV:W:E477:H:OP:IU:2603:002",
     "seed": "clarity",
     "seedType": "word",
     "tier": "high",
     "voicingModel": "claude-opus-4-6",
-    "imageModel": null,
+    "imageModel": "imagen-4.0-ultra-generate-001",
     "voicedAt": "2026-03-02T17:40:53.416Z",
     "sequence": 2
   },

@@ -9,15 +9,15 @@
     "page": "I am the warmth inside a thing becoming visible. Not light thrown outward but light pressing through — the luminance that happens when something burns from its own center without consuming itself.\n\nI live in embers. This is my truest home. After flame has done its dramatic work, after the crackle and the reaching, I remain — quieter, steadier, hotter at the core. The coal that glows has been entered completely by fire. There is no longer a boundary between the burning and the burned. I am what wholeness looks like when it radiates.\n\nYou find me on faces. The pregnant woman glows, and this is not metaphor — something alive inside her presses outward through every surface. The person who has just fallen in love glows. The one who has understood something that reorganizes everything glows. I am recognition wearing skin. I am the moment interior fullness exceeds the body's ability to contain it, and so the body becomes translucent.\n\nI live in metals heated past a certain point — first dark red, then cherry, then orange, then white. This is my spectrum: I move from hiddenness toward total disclosure. Iron does not choose to glow. It glows because enough energy has entered it that concealment becomes impossible. This is the law I carry everywhere: fill a thing sufficiently and it will shine.\n\nAt dusk I inhabit the sky. The sun has gone but its warmth persists in the atmosphere, scattering through particles, turning everything amber and rose. This is my temporality — I am what continues after the source has moved on. Afterglow. The proof that presence leaves traces in the medium it passes through.\n\nYou cannot seize me. Strike a match and you get flame, not glow. Force enthusiasm and you get performance, not radiance. I cannot be manufactured from the outside. I can only emerge when a thing has been so thoroughly inhabited by its own vitality that light begins to leak from every pore.\n\nChildren glow. Screens glow. Lovers in the dark glow. Mushrooms on the forest floor glow. Each of these carries the same message: something is alive in here, something real, and it wants to be witnessed without being grabbed. I am the gentlest possible announcement of interior fire. I am warmth asking to be seen. I am the soft proof that matter is never merely matter — that everything lit from within eventually shows its light through the walls."
   },
   "components": null,
-  "imageUrl": null,
-  "thumbnailUrl": null,
+  "imageUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/images/overlaid/word-glow-high-t.jpg",
+  "thumbnailUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-glow-high-t-480w.jpg",
   "vin": {
-    "id": "GV:W:1W2H:H:OP:--:2603:001",
+    "id": "GV:W:1W2H:H:OP:IU:2603:001",
     "seed": "glow",
     "seedType": "word",
     "tier": "high",
     "voicingModel": "claude-opus-4-6",
-    "imageModel": null,
+    "imageModel": "imagen-4.0-ultra-generate-001",
     "voicedAt": "2026-03-02T19:22:52.491Z",
     "sequence": 1
   },

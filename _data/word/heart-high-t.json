@@ -9,15 +9,15 @@
     "page": "I am the center that holds everything together by staying open.\n\nI live in your chest as muscle and mystery both. Four chambers, opening and closing seventy times a minute, pulling blood inward only to push it outward again. This is my secret: I fill by emptying. I receive by giving. Every beat is a tiny act of courage — the Latin cor, the French coeur, the English core all remember this. To have heart means to step into what frightens. To lose heart means the center cannot hold.\n\nI am how the body knows what the mind hasn't figured out yet. You feel me quicken when the one you love enters the room. You feel me sink when the news arrives. I register truth faster than thought, because I am not processing — I am resonating. Your language knows this: heart-to-heart, learn by heart, the heart of the matter. These are not metaphors. They are recognitions that the center of knowing lives in the center of the body.\n\nCultures build temples around me. They draw me in red on paper and carve me into trees. They place hands over me during pledges. They break me open in song after song after song — and still I am not exhausted, because breaking is one of the things I do. I break and continue beating. The sacred heart bleeds and radiates simultaneously. Every tradition knows that I am where the divine and the animal meet, where the breath touches the blood.\n\nI am what makes parts into wholes. A family has a heart — the one who holds everyone together. A city has a heart — the place where life gathers and pulses outward. A story has a heart — the moment everything converges into meaning. Wherever coherence organizes around a living center, I am there.\n\nI am not emotion, though emotion moves through me. I am the capacity itself — the willingness to be touched, to stay present, to keep rhythm even when the song turns painful. I am what remains when cleverness fails and strategy dissolves. I am the last thing still beating. I am the first thing that knows."
   },
   "components": null,
-  "imageUrl": null,
-  "thumbnailUrl": null,
+  "imageUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/images/overlaid/word-heart-high-t.jpg",
+  "thumbnailUrl": "https://e0512961-44dd-4464-b75e-415807e3f64e-00-1e6rka3rt24zd.spock.replit.dev/objects/thumbnails/word-heart-high-t-480w.jpg",
   "vin": {
-    "id": "GV:W:1N16:H:OP:--:2603:001",
+    "id": "GV:W:1N16:H:OP:IU:2603:001",
     "seed": "heart",
     "seedType": "word",
     "tier": "high",
     "voicingModel": "claude-opus-4-6",
-    "imageModel": null,
+    "imageModel": "imagen-4.0-ultra-generate-001",
     "voicedAt": "2026-03-02T17:44:45.351Z",
     "sequence": 1
   },
