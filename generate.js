@@ -529,7 +529,7 @@ function generateExplorerPage(entries) {
   <div class="explorer">
     <header class="explorer-header">
       <h1 class="explorer-logo">GiveVoice</h1>
-      <p class="explorer-tagline">Everything has a pattern. Every pattern has a voice.</p>
+      <p class="explorer-tagline">Everything has a pattern.<br>Every pattern has a voice.</p>
     </header>
 
     <nav class="explorer-filters">
