@@ -17,14 +17,14 @@
   "imageUrl": null,
   "thumbnailUrl": null,
   "vin": {
-    "id": "GV:W:E477:L:HK:--:2603:001",
+    "id": "GV:W:E477:L:HK:--:2603:003",
     "seed": "clarity",
     "seedType": "word",
     "tier": "low",
     "voicingModel": "claude-haiku-4-5",
     "imageModel": null,
     "voicedAt": "2026-03-01T20:27:37.664Z",
-    "sequence": 1
+    "sequence": 3
   },
   "tier": "low",
   "voicedAt": "2026-03-01T20:27:37.664Z",
