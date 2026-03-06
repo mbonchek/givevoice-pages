@@ -286,6 +286,14 @@
   color: var(--color-primary);
 }
 
+.card-seed-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
 .card-date {
   font-family: var(--font-mono);
   font-size: 0.6rem;

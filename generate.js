@@ -168,8 +168,18 @@ function deduplicateByPath(allData) {
     const outPath = computeOutputPath(data);
     data._outputPath = outPath;
 
-    if (!byPath[outPath] || tierRank(data.tier) > tierRank(byPath[outPath].tier)) {
+    const existing = byPath[outPath];
+    if (!existing) {
       byPath[outPath] = data;
+    } else {
+      const newRank = tierRank(data.tier);
+      const oldRank = tierRank(existing.tier);
+      // Higher tier wins; same tier: prefer entry with PIN; then prefer entry with image
+      if (newRank > oldRank ||
+          (newRank === oldRank && data.vin && data.vin.id && !(existing.vin && existing.vin.id)) ||
+          (newRank === oldRank && data.vin && data.vin.id && existing.vin && existing.vin.id && data.imageUrl && !existing.imageUrl)) {
+        byPath[outPath] = data;
+      }
     }
   }
 
@@ -612,20 +622,19 @@ function generateCard(data) {
     ? `\n        <span class="card-artist">${escapeHtml(artist)}</span>`
     : '';
 
-  // PIN in footer
-  const pinHtml = pinId
-    ? `<span class="card-tier" title="PIN">${escapeHtml(pinId)}</span>`
-    : `<span class="card-tier" data-tier="${escapeHtml(tier)}">${escapeHtml(tier)}</span>`;
+  // Essence sentence for card (first sentence or truncated)
+  const voicing = data.voicing || {};
+  const essenceSentence = essence || voicing.sentence || '';
 
   return `    <a class="voicing-card" href="${escapeHtml(href)}" data-seed="${escapeHtml(st)}">
 ${visualHtml}
       <div class="card-body">
         <span class="card-seed-type">${escapeHtml(st)}</span>
         <h2 class="card-title">${escapeHtml(title)}</h2>${artistHtml}
-${essence ? `        <p class="card-essence">${escapeHtml(essence)}</p>` : ''}
+${essenceSentence ? `        <p class="card-essence">${escapeHtml(essenceSentence)}</p>` : ''}
       </div>
       <div class="card-footer">
-        ${pinHtml}
+        <span class="card-seed-label">${escapeHtml(st)}</span>
 ${voicedAt ? `        <span class="card-date">${escapeHtml(voicedAt)}</span>` : ''}
       </div>
     </a>`;
