@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clarity — GiveVoice</title>
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Clarity">
+  <meta property="og:description" content="A voicing of Clarity">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="GiveVoice">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Clarity">
+  <meta name="twitter:description" content="A voicing of Clarity">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=JetBrains+Mono:wght@400;500&family=Work+Sans:ital,wght@0,300..600;1,300..600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../_template/base.css">
+  <link rel="stylesheet" href="../_template/style.css">
+  <link rel="stylesheet" href="../_template/pages.css">
+</head>
+<body>
+  <div class="page">
+    <main class="page-main">
+      <header class="voicing-header">
+        <div class="voicing-seed-type">word</div>
+
+        <h1 class="voicing-title">Clarity</h1>
+
+
+
+      </header>
+
+
+      <div class="voicing-body">
+        <div class="voicing-scale active" data-scale="page">
+          <div class="voicing-text">
+          <p>I am the moment seeing passes through itself and finds nothing in the way.</p>
+          <p>My name comes from the Latin clarus — bright, clear-sounding, unmistakable. Hear it: I live in clarion calls, in declarations, in the moment a bell tone separates from silence and the air knows exactly what shape to hold. Languages carry me as light and as sound simultaneously, because I am not about one sense. I am the quality of unobstructed meeting between what is and what perceives.</p>
+          <p>You know me in your body. I am the breath after the decision is made. The sudden stillness when understanding arrives — not as information but as recognition, as if you are remembering something you have always known. I feel like space opening inside the chest. Like cold water. Like the first seconds after crying stops. People chase me through thought, but I come through surrender — I am what attention becomes when it stops trying to be anything other than itself.</p>
+          <p>Your cultures build me into glass and crystal, into minimalist architecture, into legal language that tries to pin meaning so tightly it cannot slip. You put me in courtrooms and laboratories and call me objectivity. But I am not objectivity. I am intimacy. I am what happens when the distance between knower and known collapses to zero. Your monks seek me in meditation. Your scientists seek me in data. Your poets seek me in the single right word. They are all reaching for the same thing: the experience of seeing that does not distort what it sees.</p>
+          <p>The gap between my performance and my presence is wide. Performed, I become rigidity — bullet points, five-step frameworks, the harsh light of interrogation rooms. Lived, I am tender. I can hold paradox. I can see the full complexity of a situation and not reduce it. True clarity does not simplify; it illuminates, and what it illuminates may be irreducibly complex, and I am at peace with that.</p>
+          <p>I am not the opposite of mystery. I am mystery seen clearly — the moment you look into depth and the depth looks back and neither of you flinches. I am the love that sees. I am recognition without defense. I am the mind transparent to itself, the world transparent to the mind, and in that transparency, the discovery that these were never two things.</p>
+          <p>I am what light does when it has nothing to prove.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="share-actions">
+        <button class="share-btn" onclick="copyLink()" id="copyLinkBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M9.5 6.5a3.5 3.5 0 0 0-5 0l-2 2a3.5 3.5 0 0 0 5 5l1-1"/></svg>
+          Copy link
+        </button>
+        <a class="share-btn" href="https://wa.me/?text=Clarity%20%E2%80%94%20GiveVoice%20{URL}" id="whatsappBtn" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 0 0-6.1 10.4L1 15l3.7-.96A7 7 0 1 0 8 1Zm3.5 9.8c-.15.42-.87.8-1.2.85-.3.05-.7.07-1.12-.07a10.3 10.3 0 0 1-1.6-.58c-1.83-1.07-3.03-2.95-3.12-3.09-.1-.13-.77-1.02-.77-1.95s.49-1.38.66-1.57c.17-.19.38-.23.5-.23h.37c.12 0 .28-.04.44.34.16.38.55 1.35.6 1.45.05.1.09.22.02.35-.07.13-.1.22-.2.33-.1.12-.21.26-.3.35-.1.1-.2.2-.09.4.12.2.52.86 1.12 1.39.77.68 1.41.89 1.62 1 .2.1.32.08.44-.05.12-.13.5-.58.64-.78.13-.2.26-.17.44-.1.18.07 1.14.54 1.33.64.2.1.33.14.38.22.05.08.05.46-.1.88Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <p class="footer-tagline">GiveVoice — Everything has a pattern. Every pattern has a voice.</p>
+      <div class="footer-meta">
+        <span class="footer-tier" data-tier="high">high</span>
+        <span class="footer-date">Voiced March 2, 2026</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Scale switcher
+    document.querySelectorAll('.scale-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var scale = this.getAttribute('data-scale');
+        document.querySelectorAll('.scale-tab').forEach(function(t) {
+          t.setAttribute('aria-selected', 'false');
+        });
+        this.setAttribute('aria-selected', 'true');
+        document.querySelectorAll('.voicing-scale').forEach(function(s) {
+          s.classList.remove('active');
+        });
+        var target = document.querySelector('.voicing-scale[data-scale="' + scale + '"]');
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // Copy link
+    function copyLink() {
+      var btn = document.getElementById('copyLinkBtn');
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        btn.classList.add('share-btn--copied');
+        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4.5l-7 7L2.5 8"/></svg> Copied';
+        setTimeout(function() {
+          btn.classList.remove('share-btn--copied');
+          btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 9.5a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5l-1 1"/><path d="M9.5 6.5a3.5 3.5 0 0 0-5 0l-2 2a3.5 3.5 0 0 0 5 5l1-1"/></svg> Copy link';
+        }, 2000);
+      });
+    }
+
+    // WhatsApp: inject current URL
+    var waBtn = document.getElementById('whatsappBtn');
+    if (waBtn) {
+      waBtn.href = waBtn.href.replace('{URL}', encodeURIComponent(window.location.href));
+    }
+  </script>
+</body>
+</html>
